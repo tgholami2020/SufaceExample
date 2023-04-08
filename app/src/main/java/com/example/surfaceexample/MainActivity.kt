@@ -3,6 +3,7 @@ package com.example.surfaceexample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -12,8 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.surfaceexample.ui.theme.SurfaceExampleTheme
 
@@ -29,7 +32,10 @@ class MainActivity : ComponentActivity() {
 fun MainScreen(){
     Surface (
         color = Color.Cyan,
-        modifier = Modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize(),
+        elevation = 2.dp,
+        border = BorderStroke(1.dp, color = Color.Red)
+
             ){
         Column(modifier = Modifier.fillMaxSize(),
             verticalArrangement = Arrangement.SpaceAround,
@@ -62,7 +68,10 @@ fun MainScreen(){
 fun ImageSection(resource:Int){
     Surface(modifier = Modifier
         .height(120.dp)
-        .width(120.dp)
+        .width(120.dp),
+        border = BorderStroke(1.dp, color = Color.Black),
+        elevation = 2.dp,
+        shape = RectangleShape
 
     ) {
         Image(painter = painterResource(id = resource), contentDescription =null )
